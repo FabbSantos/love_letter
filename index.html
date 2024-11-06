@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter For Babyyy Dang</title>
+    <link rel="stylesheet" href="./styleenvelope.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&family=Sue+Ellen+Francisco&family=Sora:wght@100..800&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    :root{
+    --primary: #fff;
+    --bg-color: #FFF4F8;
+    --bg-envelope-color: #f5edd1;
+    --envelope-tab: #ecdeb8;
+    --envelope-cover: #e6cfa7;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8, 231);
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    font-family: "Enriqueta", serif;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .titles {
+    position: absolute;
+    top: 3%;
+    text-align: center;
+    color: #FF4B99;
+    transition: all 0.5s ease-in-out;
+  }
+  .container > .envelope-wrapper {
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+    margin-top: 80%;
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 300px;
+    height: 230px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 130px solid transparent;
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    border-left: 150px solid var(--envelope-cover);
+  }
+  .envelope > .letter {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 54%;
+    height: 80%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 20px 10px;
+  }
+  
+  .envelope > .letter > .text {
+    font-family: "Sue Ellen Francisco", cursive;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 1.3em;
+  }
+  .heart {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--heart-color);
+    z-index: 4;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 1px 6px var(--shadow-color);
+    cursor: pointer;
+  }
+  .heart:before, 
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--heart-color);
+    border-radius: 50%;
+  }
+  .heart:before {
+    top: -7.5px;
+  }
+  .heart:after {
+    right: 7.5px;
+  }
+  .flap > .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+  }
+  .flap > .envelope > .letter {
+    bottom: 100px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+  }
+  .flap > .heart {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  .buttons {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    bottom: 5%;
+    font-family: "Sora", cursive;
+  }
+  .buttons.visible {
+    display: flex;
+    opacity: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .sim {
+    border-radius: 54.71px;
+    color: white;
+    font-size: 30px;
+    padding: 10px 50px;
+    background: #FF4B99;
+    border: none;
+  }
+  .nao {
+    background: none;
+    border: none;
+    color: #ADADAD;
+    text-decoration: underline;
+    font-size: 20px;
+  }
+  .container.bg-changed {
+    background-image: url('coracoes.png'); 
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+  .image,  .image2 {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+  }
+  .image.visible,  .image2.visible {
+    display: block;
+   }
+  .reset {
+    display: none;
+    position: absolute;
+    z-index: 20;
+    bottom: 5%;
+    padding: 10px 20px;
+    background-color: #FF4B99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .reset.visible {
+    display: block;
+    opacity: 1;
+  }
+</style>
+<body>
+    <div class="container">
+        <div class="titles">
+            <h1>Você recebeu uma carta de amor.</h1>
+            <h2>Clique para abrir 👇🏼</h2>
+        </div>
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <p>
+                        Quer namorar cmg?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+        <div class="buttons">
+            <button class="sim">SIM!! 🤩💖</button>
+            <button class="nao">NÃOO 👎🏼🚫</button>
+        </div>
+    </div>
+    <img src="gatinho_teamo.png" class="image" alt="gatinho te amo">
+    <img src="paia-meme.gif" class="image2" alt="gif paia">
+    <button class="reset hidden">Reset</button>
+
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        const titles = document.querySelector('.titles');
+        const buttons = document.querySelector('.buttons');
+        const container = document.querySelector('.container');
+        const simButton = document.querySelector('.sim');
+        const naoButton = document.querySelector('.nao');
+        const image = document.querySelector('.image');
+        const image2 = document.querySelector('.image2');
+        const resetButton = document.querySelector('.reset');
+
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            titles.classList.toggle('hidden');
+            buttons.classList.toggle('visible');
+            container.classList.toggle('bg-changed');
+        });
+
+        simButton.addEventListener('click', () => {
+                container.classList.add('hidden');
+                image.classList.add('visible');
+                resetButton.classList.add('visible');
+        });
+        naoButton.addEventListener('click', () => {
+                container.classList.add('hidden');
+                image2.classList.add('visible');
+                resetButton.classList.add('visible');
+        });
+        resetButton.addEventListener('click', () => {
+                container.classList.remove('hidden');
+                titles.classList.remove('hidden');
+                buttons.classList.remove('hidden', 'visible');
+                image.classList.remove('visible');
+                image2.classList.remove('visible');
+                resetButton.classList.remove('visible');
+                envelope.classList.remove('flap');
+                container.classList.remove('bg-changed');
+            });
+    </script>
+</body>
+</html>
+</body>
+</html>

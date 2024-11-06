@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Você recebeu uma carta de amor!</title>
+    <title>Love</title>
 </head>
 <body>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Você recebeu uma carta de amor!</title>
+    <title>Love Letter For Babyyy Dang</title>
     <link rel="stylesheet" href="./styleenvelope.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,15 +49,19 @@
   }
   .titles {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
     top: 3%;
     text-align: center;
     color: #FF4B99;
     transition: all 0.5s ease-in-out;
   }
   .container > .envelope-wrapper {
+    position: relative;
     background: var(--bg-envelope-color);
     box-shadow: 0 0 40px var(--shadow-color);
-    margin-top: 80%;
+    margin-top: 20%;
   }
   .envelope-wrapper > .envelope {
     position: relative;
@@ -101,13 +105,13 @@
   
   .envelope > .letter > .text {
     font-family: "Sue Ellen Francisco", cursive;
+    text-align: center;
     color: var(--txt-color);
-    text-align: left;
     font-size: 1.3em;
   }
   .heart {
     position: absolute;
-    top: 65%;
+    top: 50%;
     left: 50%;
     width: 15px;
     height: 15px;
@@ -145,6 +149,8 @@
   .flap > .heart {
     transform: rotate(90deg);
     transition-delay: 0.4s;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
   }
   .hidden {
     opacity: 0;
@@ -191,7 +197,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-/*     width: 100%; */
+    /* width: 100%; */
     height: auto;
   }
   .image.visible,  .image2.visible {
